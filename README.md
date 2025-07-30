@@ -1,4 +1,4 @@
-# Getting Started with Snowflake Intelligence
+# Getting Started with Snowflake Intelligence and Cortex Knowledge Extensions
 
 ## Overview
 
@@ -6,4 +6,4 @@ Snowflake Intelligence offers a powerful solution for organizations to access an
 
 ## Step-By-Step Guide
 
-For prerequisites, environment setup, step-by-step guide and instructions, please refer to the [QuickStart Guide](https://quickstarts.snowflake.com/guide/getting-started-with-snowflake-intelligence/index.html).
+For prerequisites, environment setup, step-by-step guide and instructions, please refer to the [QuickStart Guide](https://quickstarts.snowflake.com/guide/getting-started-with-snowflake-intelligence-and-cke/index.html).
