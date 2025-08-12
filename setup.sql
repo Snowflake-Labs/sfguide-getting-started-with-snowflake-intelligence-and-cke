@@ -14,6 +14,8 @@ use role snowflake_intelligence_admin;
 create database if not exists snowflake_intelligence;
 create schema if not exists snowflake_intelligence.agents;
 
+grant create agent on schema snowflake_intelligence.agents to role snowflake_intelligence_admin
+
 create database if not exists dash_si_cke;
 create schema if not exists dash_si_cke.data;
 
