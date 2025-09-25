@@ -41,10 +41,10 @@ use role cortex_admin;
 -- Database and schema setup
 -- ========================================
 -- Create a single database for the entire cortex demo
-create database if not exists cortex_demo;
+create database if not exists snowflake_intelligence;
 
 -- Use the new database for all subsequent operations
-use database cortex_demo;
+use database snowflake_intelligence;
 
 -- Create schema for ai agents
 create schema if not exists agents;
@@ -62,7 +62,7 @@ create schema if not exists data;
 -- Agent permissions
 -- ========================================
 -- Grant permission to create agents in the agents schema
-grant create agent on schema cortex_demo.agents
+grant create agent on schema snowflake_intelligence.agents
 to role cortex_admin;
 
 alter account set cortex_enabled_cross_region = 'AWS_US';
@@ -75,7 +75,7 @@ use schema tools;
 
 -- Create a notification integration for sending emails
 -- This allows snowflake to send emails through its built-in email service
-create or replace notification integration cortex_demo_email_integration
+create or replace notification integration snowflake_intelligence_email_integration
   type=email
   enabled=true
   default_subject = 'snowflake cortex demo';
@@ -117,7 +117,7 @@ def send_email(session, recipient_email, subject, body):
         # execute the system procedure call to send the email
         session.sql(f"""
             call system$send_email(
-                'cortex_demo_email_integration', -- Name of the notification integration
+                'snowflake_intelligence_email_integration', -- Name of the notification integration
                 '{recipient_email}',             -- Recipient email address
                 '{subject}',                     -- Email subject
                 '{escaped_body}'                 -- Email body (escaped)
