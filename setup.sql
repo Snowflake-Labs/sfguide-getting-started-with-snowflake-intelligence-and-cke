@@ -15,14 +15,14 @@
 use role accountadmin;
 
 -- Create a dedicated role for managing cortex resources
-create role if not exists cortex_admin;
+create role if not exists snowflake_intelligence_admin;
 
 -- Grant necessary account-level privileges to the new role
-grant create database on account to role cortex_admin;
+grant create database on account to role snowflake_intelligence_admin;
 -- Allows creating databases
-grant usage on warehouse compute_wh to role cortex_admin;
+grant usage on warehouse compute_wh to role snowflake_intelligence_admin;
 -- Allows using the default compute warehouse
-grant create integration on account to role cortex_admin;
+grant create integration on account to role snowflake_intelligence_admin;
 -- Allows creating notification integrations
 
 -- ========================================
@@ -32,10 +32,10 @@ grant create integration on account to role cortex_admin;
 set current_user = current_user();
 
 -- Grant the new role to the current user
-grant role cortex_admin to user identifier($current_user);
+grant role snowflake_intelligence_admin to user identifier($current_user);
 
 -- Switch to the new role for the remaining operations
-use role cortex_admin;
+use role snowflake_intelligence_admin;
 
 -- ========================================
 -- Database and schema setup
@@ -63,7 +63,7 @@ create schema if not exists data;
 -- ========================================
 -- Grant permission to create agents in the agents schema
 grant create agent on schema snowflake_intelligence.agents
-to role cortex_admin;
+to role snowflake_intelligence_admin;
 
 alter account set cortex_enabled_cross_region = 'AWS_US';
 
