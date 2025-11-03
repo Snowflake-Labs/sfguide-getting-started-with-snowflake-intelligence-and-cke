@@ -83,6 +83,10 @@ create or replace notification integration snowflake_intelligence_email_integrat
 -- ========================================
 -- Email sending procedure
 -- ========================================
+
+-- Switch to the data schema for creating the email procedure
+use schema data;
+
 -- Create a stored procedure that wraps snowflake's email sending functionality
 -- This makes it easier for agents and applications to send emails
 create or replace procedure send_email(
